@@ -49,11 +49,11 @@ app.put('/update/:id', function(req, res) {
 
   var data = db.loadData(dbFile);
   for(var ii = 0; ii < data.length; ii++) {
-    if (data[ii].id === id) {
+    if (data[ii].id == id) {
       data[ii].name = name;
       db.saveData(data, dbFile);
-    }
-    break;
+      break;
+    }    
   }
 
   res.send('OK');
@@ -63,11 +63,11 @@ app.delete('/delete/:id', function(req, res) {
   var id = req.params.id;
   var data = db.loadData(dbFile);
   for(var ii = 0; ii < data.length; ii++) {
-    if (data[ii].id === id) {
+    if (data[ii].id == id) {
       data.splice(ii, 1);
       db.saveData(data, dbFile);
+      break;
     }
-    break;
   }
 
   res.send('OK');

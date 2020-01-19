@@ -8,7 +8,6 @@ module.exports = {
   
     var lastId = 0;
     for (var ii = 0; ii < data.length; ii++) {
-      console.log(data[ii]);
       if (data[ii].id > lastId) {
         lastId = data[ii].id;
       }
@@ -19,7 +18,6 @@ module.exports = {
   loadData: function(file) {
     try {
       var rawData = fs.readFileSync(file);
-      console.log(rawData);
       var data = JSON.parse(rawData);
       return data;      
     } catch (err) {
