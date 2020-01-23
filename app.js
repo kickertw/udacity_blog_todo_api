@@ -39,8 +39,7 @@ app.post('/add', function (req, res) {
 
   data.push({id: newId, name: name});
   db.saveData(data, dbFile);
-
-  res.send('OK');
+  res.send({ status: 'OK' });
 });
 
 app.put('/update/:id', function(req, res) {
@@ -70,7 +69,7 @@ app.delete('/delete/:id', function(req, res) {
     }
   }
 
-  res.send('OK');
+  res.send({ status: 'OK' });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
